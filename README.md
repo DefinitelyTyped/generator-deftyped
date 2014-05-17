@@ -55,12 +55,12 @@ $ npm link
 Goto another directory and execute the generator to test. Example:
 
 ```bash
-yo deftyped
+$ yo deftyped
 ```
 
 You will need to answer a little questions.
 
-```bash
+```
    ___ _____                  _
   |   \_   _|  _ _ __  ___ __| |
   | |) || || || | '_ \/ -_) _` |
