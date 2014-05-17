@@ -1,0 +1,6 @@
+node_modules/
+temp/
+*.js
+*.js.map
+!/Gruntfile.js
+.tscache
