@@ -31,7 +31,7 @@ This generator will sets up a new DefinitelyTyped typing template, generating th
 Clone this project
 
 ```bash
-$ git clone [url]
+$ git clone git@github.com:Diullei/generator-deftyped.git
 ```
 
 Go to project directory and install npm dependencies
