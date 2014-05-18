@@ -1,6 +1,3 @@
-/// <reference path="../typings/chalk/chalk.d.ts" />
-/// <reference path="../typings/yeoman-generator/yeoman-generator.d.ts" />
-/// <reference path="../typings/findup-sync/findup-sync.d.ts" />
 /// <reference path="../typings/tsd.d.ts" />
 
 'use strict';
