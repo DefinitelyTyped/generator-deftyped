@@ -10,12 +10,12 @@ import fs = require('fs');
 import yeoman = require('yeoman-generator');
 import chalk = require('chalk');
 
-var greet: string = "";
-greet = <any>chalk.bold.blue("   ___ _____                  _ \n");
-greet += <any>chalk.bold.blue("  |   \\_   _|  _ _ __  ___ __| |\n");
-greet += <any>chalk.bold.blue("  | |) || || || | '_ \\/ -_) _` |\n");
-greet += <any>chalk.bold.blue("  |___/ |_| \\_, | .__/\\___\\__,_|\n");
-greet += <any>chalk.bold.blue("            |__/|_|             \n");
+var greet: string = '';
+greet = <any>chalk.bold.blue('   ___ _____                  _ \n');
+greet += <any>chalk.bold.blue('  |   \\_   _|  _ _ __  ___ __| |\n');
+greet += <any>chalk.bold.blue('  | |) || || || | \'_ \\/ -_) _` |\n');
+greet += <any>chalk.bold.blue('  |___/ |_| \\_, | .__/\\___\\__,_|\n');
+greet += <any>chalk.bold.blue('            |__/|_|             \n');
 
 interface DefTypedAnswers extends inquirer.Answers {
     typingName: string;
@@ -99,9 +99,7 @@ var deftypedGenerator = yeoman.generators.Base.extend({
         this.template('_typing.d.ts.tmpl', './' + this.typingName + '/' + this.typingName + '.d.ts');
         this.template('_typing-tests.ts.tmpl', './' + this.typingName + '/' + this.typingName + '-tests.ts');
         this.template('_typing-tests.ts.tscparams.tmpl', './' + this.typingName + '/' + this.typingName + '-tests.ts.tscparams');
-    },
-
-    projectfiles: () => { }
+    }
 });
 
 module.exports = deftypedGenerator;
