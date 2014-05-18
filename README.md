@@ -31,7 +31,7 @@ This generator will sets up a new DefinitelyTyped typing template, generating th
 Clone this project
 
 ```bash
-$ git clone git@github.com:Diullei/generator-deftyped.git
+$ git clone git@github.com:DefinitelyTyped/generator-deftyped.git
 ```
 
 Go to project directory and install npm dependencies
@@ -91,6 +91,4 @@ Now all you need to do is edit the files, start to write the typing and send in 
 
 ## TODO
 
-* Improve de question validations
-* Improve template files
-* Improve READ Getting Started section
+To see what to do, please, take a look at issue list https://github.com/DefinitelyTyped/generator-deftyped/issues?page=1&state=open
