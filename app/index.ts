@@ -7,10 +7,8 @@ import path = require('path');
 import fs = require('fs');
 import yeoman = require('yeoman-generator');
 import chalk = require('chalk');
-
-// "import findup" are not compiling...
-// import findup = require('findup-sync');
-var findup = require('findup-sync');
+import findup = require('findup-sync');
+import open = require('open');
 
 var greet: string = '';
 greet = <any>chalk.bold.blue('   ___ _____                  _ \n');
@@ -26,8 +24,7 @@ interface IEnvironment {
 
 class DefTypedEnvironment implements IEnvironment {
     verify(): boolean {
-        // TODO: need to fix the typing and remove this cast (<any>findup)(...)
-        var pkg = (<any>findup)('package.json');
+        var pkg = findup('package.json');
 
         if (pkg == null) {
             return false;
@@ -39,8 +36,7 @@ class DefTypedEnvironment implements IEnvironment {
 
     public getRoot(): string {
         if (this.verify()) {
-        // TODO: need to fix the typing and remove this cast (<any>findup)(...)
-            var root = path.dirname((<any>findup)('package.json'));
+            var root = path.dirname(findup('package.json'));
             return path.resolve(root);
         }
         return null;
@@ -51,8 +47,7 @@ class TsdEnvironment implements IEnvironment {
     path: string;
 
     verify(): boolean {
-        // TODO: need to fix the typing and remove this cast (<any>findup)(...)
-        var pkg = (<any>findup)('tsd.json');
+        var pkg = findup('tsd.json');
 
         if (pkg == null) {
             return false;
@@ -60,7 +55,7 @@ class TsdEnvironment implements IEnvironment {
 
         var pkgFile = require(pkg);
 
-        var root = path.dirname((<any>findup)('tsd.json'));
+        var root = path.dirname(findup('tsd.json'));
         this.path = path.join(path.resolve(root), pkgFile.path);
 
         return pkgFile.path != null;
@@ -102,14 +97,18 @@ interface DefTypedAnswers extends inquirer.Answers {
     libraryUrl: string;
     githubName: string;
     useSuggestedPath: boolean;
+    moreInfoAtTheEnd: boolean;
 }
 
 var deftypedGenerator = yeoman.generators.Base.extend({
 
-    init: function() {
+    init: function () {
+        var self: DefTypedAnswers = this;
         this.on('end', function() {
             if (!this.options['skip-install']) {
-                //...
+                if (self.moreInfoAtTheEnd) {
+                    open('http://definitelytyped.org/guides/creating.html');
+                }
             }
         });
     },
@@ -180,12 +179,20 @@ var deftypedGenerator = yeoman.generators.Base.extend({
             }
         });
 
+        prompts.push({
+            type: 'confirm',
+            name: 'moreInfoAtTheEnd',
+            message: 'Would you like more information about how to create TypeScript definitions\n at the end of this installation?',
+            default: 'Y'
+        });
+
         this.prompt(prompts, function (props: DefTypedAnswers) {
             this.typingName = props.typingName;
             this.libraryUrl = props.libraryUrl;
             this.githubName = props.githubName;
             this.typingVersion = props.typingVersion;
             this.useSuggestedPath = props.useSuggestedPath;
+            this.moreInfoAtTheEnd = props.moreInfoAtTheEnd;
 
             var typingDir: string = './';
 
