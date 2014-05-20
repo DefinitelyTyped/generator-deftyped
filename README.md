@@ -2,6 +2,8 @@
 
 > [Yeoman](http://yeoman.io/) generator for [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) typings - lets you quickly set up a `typing` directory with a minimal template.
 
+:warning: Under construction, without tests... be patient! :palm_tree: 
+
 ## Dependencies
 
 To execute the deftyped generator you will need some npm packages:
