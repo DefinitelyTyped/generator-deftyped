@@ -1,7 +1,11 @@
 language: node_js
 node_js:
   - '0.10'
+
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-deftyped' ]; then cd .. && eval "mv $currentfolder generator-deftyped" && cd generator-deftyped; fi
-
+  - npm install -gq grunt-cli tsd typescript
+  - npm install
+  - tsd reinstall
+  - grunt
