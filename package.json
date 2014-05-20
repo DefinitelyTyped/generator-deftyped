@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter spec"
   },
   "files": [
     "app"
@@ -35,6 +35,7 @@
     "grunt-tslint": "~0.4.1"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": ">=1.0.0",
+	 "generator-mocha": ">=0.1.0"
   }
 }

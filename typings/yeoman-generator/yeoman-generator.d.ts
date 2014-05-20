@@ -6,6 +6,8 @@ declare module yeoman {
             static extend(obj: any);
         }
     }
+
+    export var test: any;
 }
 
 declare module "yeoman-generator" {

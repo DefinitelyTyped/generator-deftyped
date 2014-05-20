@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         ts: {
             build: {
-                src: ['app/**/*.ts'],
+                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp/**/*.*'],
                 options: {
                     target: 'es3',
                     module: 'commonjs',
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                 configuration: grunt.file.readJSON('tslintrc.json')
             },
             all: {
-                src: ['app/**/*.ts']
+                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp/**/*.*']
             }
         }
     });
