@@ -1,5 +1,5 @@
 node_modules/
-temp/
+/test/temp*
 *.js
 *.js.map
 !/Gruntfile.js

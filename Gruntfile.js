@@ -4,11 +4,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-tslint');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.initConfig({
+        clean: {
+            js: ['test/temp*']
+        },
         ts: {
             build: {
-                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp/**/*.*'],
+                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp*/**/*.*'],
                 options: {
                     target: 'es3',
                     module: 'commonjs',
@@ -29,10 +34,18 @@ module.exports = function(grunt) {
                 configuration: grunt.file.readJSON('tslintrc.json')
             },
             all: {
-                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp/**/*.*']
+                src: ['app/**/*.ts', 'test/**/*.ts', '!test/temp*/**/*.*']
+            }
+        },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['test/**/*.js', '!test/temp*/**/*.*']
             }
         }
     });
 
-    grunt.registerTask('default', ['jshint:all', 'tslint:all', 'ts:build']);
+    grunt.registerTask('default', ['clean', 'jshint:all', 'tslint:all', 'ts:build', 'mochaTest']);
 };

@@ -35,7 +35,7 @@ var deftypedGenerator = yeoman.generators.Base.extend({
         var done = this.async();
 
         this.log(greet);
-        this.log(chalk.white(' Welcome to DefinitelyTyped typing boilerplate!\n'));
+        this.log(chalk.white(' Welcome to DefinitelyTyped typing generator!\n'));
 
         var prompts: Array<inquirer.Question> = [];
 
