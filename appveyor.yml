@@ -28,4 +28,4 @@ test_script:
   - node --version
   - npm --version
   # - ps: grunt # PowerShell
-  - cmd: npm install
+  - cmd: npm test
