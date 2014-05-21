@@ -27,5 +27,5 @@ build: off
 test_script:
   - node --version
   - npm --version
-  - ps: grunt # PowerShell
-  - cmd: grunt
+  # - ps: grunt # PowerShell
+  - cmd: npm install
