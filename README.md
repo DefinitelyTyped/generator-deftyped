@@ -1,4 +1,4 @@
-# generator-deftyped [![Build Status](https://travis-ci.org/DefinitelyTyped/generator-deftyped.svg?branch=master)](https://travis-ci.org/DefinitelyTyped/generator-deftyped)
+# generator-deftyped [![Build Status](https://travis-ci.org/DefinitelyTyped/generator-deftyped.svg?branch=master)](https://travis-ci.org/DefinitelyTyped/generator-deftyped) <a href="https://ci.appveyor.com/project/Diullei/generator-deftyped"><img src="https://ci.appveyor.com/api/projects/status/o88he310hgy9mklp/branch/master" alt="Build Status: Windows" height="18" /></a>
 
 > [Yeoman](http://yeoman.io/) generator for [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) typings - lets you quickly set up a `typing` directory with a minimal template.
 
