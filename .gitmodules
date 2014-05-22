@@ -1,0 +1,3 @@
+[submodule "definition-header"]
+	path = definition-header
+	url = git@github.com:DefinitelyTyped/definition-header.git
