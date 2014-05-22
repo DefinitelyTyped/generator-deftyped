@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 options: {
                     target: 'es3',
                     module: 'commonjs',
-                    sourceMap: true,
+                    sourceMap: false,
                     declaration: false,
                     removeComments: true
                 },

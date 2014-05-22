@@ -10,6 +10,7 @@ import chalk = require('chalk');
 import open = require('open');
 import model = require('./model');
 import environment = require('./environment');
+import validator = require('./validator');
 
 var greet: string = '';
 greet = <any>chalk.bold.blue('   ___ _____                  _ \n');
@@ -63,26 +64,23 @@ var deftypedGenerator = yeoman.generators.Base.extend({
             name: 'typingName',
             message: 'Please, inform the typing name?',
             validate: (answer: string) => {
-                if (answer) {
-                    return answer.trim() !== '';
-                }
-                return false;
+                return validator.validateTypingName(answer);
             }
         });
 
         prompts.push({
             name: 'typingVersion',
-            message: 'What the typing version?'
+            message: 'What the typing version?',
+            validate: (answer: string) => {
+                return validator.validateTypingVersion(answer);
+            }
         });
 
         prompts.push({
             name: 'libraryUrl',
             message: 'What the project library url?',
             validate: (answer: string) => {
-                if (answer) {
-                    return answer.trim() !== '';
-                }
-                return false;
+                return validator.validateProjectUrl(answer);
             }
         });
 
@@ -90,10 +88,7 @@ var deftypedGenerator = yeoman.generators.Base.extend({
             name: 'githubName',
             message: 'Inform your Github name?',
             validate: (answer: string) => {
-                if (answer) {
-                    return answer.trim() !== '';
-                }
-                return false;
+                return validator.validateAuthorName(answer);
             }
         });
 
