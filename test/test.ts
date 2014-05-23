@@ -25,17 +25,25 @@ describe('generator-deftyped tests', function() {
         createGenerator(this, root, 'generator', '../../app', done);
     });
 
-    //afterEach(done => {
-    //    //deleteFolderRecursive(root, done);
-    //});
-
     it('the generator can be required without throwing', function () {
         this.app = require('../app');
     });
 
     it('creates expected files', function (done) {
         var expected = [
-            'ttt/ttt.d.ts',
+            // header expected comments
+            ['ttt/ttt.d.ts', /\/\/ Type definitions for ttt v0.0.0/],
+            ['ttt/ttt.d.ts', /\/\/ Project: http:\/\/ttt.ttt/],
+            ['ttt/ttt.d.ts', /\/\/ Definitions by: name <http:\/\/github.com\/name>/],
+            ['ttt/ttt.d.ts', /\/\/ Definitions: https:\/\/github.com\/borisyankov\/DefinitelyTyped/],
+
+            // module declaration
+            ['ttt/ttt.d.ts', /declare module tttModule/],
+            ['ttt/ttt.d.ts', /declare module 'ttt' \{/],
+
+            // export module
+            ['ttt/ttt.d.ts', /export = tttModule;/],
+
             'ttt/ttt-tests.ts',
             'ttt/ttt-tests.ts.tscparams'
         ];
@@ -65,13 +73,21 @@ describe('generator-deftyped tsd environment test', function () {
         createGenerator(this, root, 'generator', '../../../app', done);
     });
 
-    //afterEach(done => {
-    //    deleteFolderRecursive(root, done);
-    //});
-
     it('shold identify tsd environment', function (done) {
         var expected = [
-            '../typing/ttt/ttt.d.ts',
+            // header expected comments
+            ['../typing/ttt/ttt.d.ts', /\/\/ Type definitions for ttt v0.0.0/],
+            ['../typing/ttt/ttt.d.ts', /\/\/ Project: http:\/\/ttt.ttt/],
+            ['../typing/ttt/ttt.d.ts', /\/\/ Definitions by: name <http:\/\/github.com\/name>/],
+            ['../typing/ttt/ttt.d.ts', /\/\/ Definitions: https:\/\/github.com\/borisyankov\/DefinitelyTyped/],
+
+            // module declaration
+            ['../typing/ttt/ttt.d.ts', /declare module tttModule/],
+            ['../typing/ttt/ttt.d.ts', /declare module 'ttt' \{/],
+
+            // export module
+            ['../typing/ttt/ttt.d.ts', /export = tttModule;/],
+
             '../typing/ttt/ttt-tests.ts',
             '../typing/ttt/ttt-tests.ts.tscparams'
         ];
@@ -106,13 +122,21 @@ describe('generator-deftyped DefinitelyTyped environment test', function () {
         });
     });
 
-    //afterEach(done => {
-    //    deleteFolderRecursive(root, done);
-    //});
-
     it('shold identify DefinitelyTyped environment', function (done) {
         var expected = [
-            '../ttt/ttt.d.ts',
+            // header expected comments
+            ['../ttt/ttt.d.ts', /\/\/ Type definitions for ttt v0.0.0/],
+            ['../ttt/ttt.d.ts', /\/\/ Project: http:\/\/ttt.ttt/],
+            ['../ttt/ttt.d.ts', /\/\/ Definitions by: name <http:\/\/github.com\/name>/],
+            ['../ttt/ttt.d.ts', /\/\/ Definitions: https:\/\/github.com\/borisyankov\/DefinitelyTyped/],
+
+            // module declaration
+            ['../ttt/ttt.d.ts', /declare module tttModule/],
+            ['../ttt/ttt.d.ts', /declare module 'ttt' \{/],
+
+            // export module
+            ['../ttt/ttt.d.ts', /export = tttModule;/],
+
             '../ttt/ttt-tests.ts',
             '../ttt/ttt-tests.ts.tscparams'
         ];
