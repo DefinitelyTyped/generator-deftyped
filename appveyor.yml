@@ -21,7 +21,8 @@ install:
   - npm install -gq grunt-cli tsd typescript
   - npm install
   - tsd reinstall
-
+  - git submodule update --init --recursive
+  - git submodule foreach npm install
 build: off
 
 test_script:
