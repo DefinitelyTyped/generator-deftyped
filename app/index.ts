@@ -11,6 +11,7 @@ import open = require('open');
 import model = require('./model');
 import environment = require('./environment');
 import validator = require('./validator');
+import hStringify = require('./headerStringify');
 
 var greet: string = '';
 greet = <any>chalk.bold.blue('   ___ _____                  _ \n');
@@ -106,6 +107,14 @@ var deftypedGenerator = yeoman.generators.Base.extend({
             this.typingVersion = props.typingVersion;
             this.useSuggestedPath = props.useSuggestedPath;
             this.moreInfoAtTheEnd = props.moreInfoAtTheEnd;
+
+            this.serializedHeader = hStringify.serialize(
+                props.typingName,
+                props.typingVersion,
+                props.libraryUrl,
+                props.githubName,
+                'http://github.com/' + props.githubName,
+                'https://github.com/borisyankov/DefinitelyTyped');
 
             var typingDir: string = './';
 
