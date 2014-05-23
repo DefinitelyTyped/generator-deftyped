@@ -2,7 +2,7 @@
 
 > [Yeoman](http://yeoman.io/) generator for [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) typings - lets you quickly set up a `typing` directory with a minimal template.
 
-:warning: Under construction, without tests... be patient! :palm_tree: 
+:warning: Under construction... be patient! :palm_tree: 
 
 ## Dependencies
 
@@ -94,3 +94,9 @@ Now all you need to do is edit the files, start to write the typing and send in 
 ## TODO
 
 To see what to do, please, take a look at issue list https://github.com/DefinitelyTyped/generator-deftyped/issues?page=1&state=open
+
+## License
+
+Copyright (c) 2014 [Diullei Gomes](https://github.com/Diullei) @ [DefinitelyTyped](https://github.com/DefinitelyTyped)
+
+Licensed under the MIT license.
